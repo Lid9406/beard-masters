@@ -8,10 +8,6 @@ class BeardProduct:
     # Handles product details and price validation.
     def __init__(self, name, price, description):
         # Initialize a new beard product.
-        # Args:
-        #     name (str): Name of the product
-        #     price (float/int): Price of the product
-        #     description (str): Product description
         self.name = name
         self.price = price
         self.description = description
@@ -19,7 +15,6 @@ class BeardProduct:
 
     def _validate_price(self):
         # Validates that the product price is a positive number.
-        # Raises:
         #     ValueError: If price is negative or not a number
         if not isinstance(self.price, (int, float)) or self.price < 0:
             raise ValueError("Price must be a positive number")
@@ -33,10 +28,6 @@ class GroomingService:
     # Includes basic service attributes and pricing.
     def __init__(self, name, price, description):
         # Initialize a new grooming service.
-        # Args:
-        #     name (str): Name of the service
-        #     price (float/int): Price of the service
-        #     description (str): Service description
         self.name = name
         self.price = price
         self.description = description
@@ -44,8 +35,6 @@ class GroomingService:
 
     def get_total(self):
         # Calculates and returns the total price for the service.
-        # Returns:
-        #     float: Total price of the service
         return self.price
 
 class LuxuryGroomingService(GroomingService):
@@ -53,10 +42,6 @@ class LuxuryGroomingService(GroomingService):
     # Includes additional luxury features like hot towel and facial treatment.
     def __init__(self, name, price, description):
         # Initialize a new luxury grooming service.
-        # Args:
-        #     name (str): Name of the luxury service
-        #     price (float/int): Price of the luxury service
-        #     description (str): Luxury service description
         super().__init__(name, price, description)
         self.duration = 60  # minutes - extended duration for luxury service
         self.includes_hot_towel = True  # Additional luxury feature
