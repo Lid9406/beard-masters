@@ -11,6 +11,7 @@ from beard_masters_orders import OrderManager
 
 class BeardMastersSystem:
     def __init__(self):
+        # Initialize product catalog with basic and premium products
         self.products = {
             'Basic Products': [
                 BeardProduct('Beard Oil', 25.99, 'Premium beard moisturizer'),
@@ -23,6 +24,7 @@ class BeardMastersSystem:
             ]
         }
         
+        # Initialize service catalog with basic and luxury services
         self.services = {
             'Basic Services': [
                 GroomingService('Basic Trim', 30.00, '30-minute maintenance'),
@@ -34,6 +36,7 @@ class BeardMastersSystem:
             ]
         }
         
+        # Initialize shopping cart and order management system
         self.cart = []
         self.order_manager = OrderManager()
 
@@ -47,7 +50,7 @@ class BeardMastersSystem:
         print("5. Exit")
 
     def _view_products(self):
-        """Display available products"""
+        """Display available products with categories, prices, and descriptions"""
         print("\n=== Available Products ===")
         for category, items in self.products.items():
             print(f"\n{category}:")
@@ -55,7 +58,7 @@ class BeardMastersSystem:
                 print(f"- {product.name}: ${product.price:.2f} - {product.description}")
 
     def _view_services(self):
-        """Display available services"""
+        """Display available services with categories, prices, and descriptions"""
         print("\n=== Available Services ===")
         for category, items in self.services.items():
             print(f"\n{category}:")
@@ -63,12 +66,12 @@ class BeardMastersSystem:
                 print(f"- {service.name}: ${service.price:.2f} - {service.description}")
 
     def _book_appointment(self):
-        """Book an appointment"""
+        """Handle appointment booking process (placeholder for future implementation)"""
         print("\nBooking system will be implemented soon.")
         # Add appointment booking logic here
 
     def _save_order(self):
-        """Save the current order"""
+        """Process and save the current order if cart is not empty"""
         if not self.cart:
             print("\nCart is empty!")
             return
@@ -76,11 +79,14 @@ class BeardMastersSystem:
         # Add order saving logic here
 
     def run(self):
+        """Main application loop handling user input and navigation"""
         while True:
             try:
+                # Display menu and get user input
                 self._display_menu()
                 choice = input("\nSelect option (1-5): ")
                 
+                # Process user choice
                 if choice == '1':
                     self._view_products()
                 elif choice == '2':
@@ -95,8 +101,10 @@ class BeardMastersSystem:
                 else:
                     print("\nInvalid choice. Please select 1-5.")
             except Exception as e:
+                # Handle any unexpected errors
                 print(f"\nError: {str(e)}")
 
+# Entry point of the application
 if __name__ == "__main__":
     app = BeardMastersSystem()
     app.run()
